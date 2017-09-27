@@ -5,4 +5,3 @@ sensor = Adafruit_AMG88xx()
 sleep(0.1)
 pixels = sensor.readPixels()
 
-print(pixels)
