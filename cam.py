@@ -52,5 +52,4 @@ def checkChild():
 
 	return len(children) > 0
 
-if __name__ == 'main':
-	print(checkChild())
+print(checkChild())
