@@ -20,6 +20,7 @@
 <script type="text/python">
 from browser import document
 import math
+import cam
 
 col = [24.5, 24.0, 23.5, 23.75, 23.5, 24.0, 24.0, 24.25, 24.0, 24.0, 23.75, 23.75, 23.5, 24.5, 24.75, 24.75, 24.25, 25.5, 24.75, 32.25, 25.5, 22.0, 26.25, 31.25, 24.5, 24.75, 28.25, 30.25, 30.25, 30.0, 30.25, 30.0, 23.75, 24.25, 26.25, 28.5, 30.25, 31.0, 30.75, 29.75, 23.75, 23.5, 24.0, 24.75, 25.25, 28.0, 29.25, 29.25, 23.5, 23.5, 23.75, 24.25, 24.5, 28.0, 29.5, 30.5, 23.5, 24.0, 23.5, 23.5, 23.75, 26.0, 28.75, 30.0]
 
@@ -45,10 +46,10 @@ for i in range(8):
 	row = "<div>"
 
 	for j in range(8):
-		row += '<div class="square" style="background:' + tocol(col[8 * j + i]) + '"></div>'
+		row = row + "<div class=\"square\" style=\"background:" + tocol(col[8 * j + i]) + "\"></div>"
 
-	row += '</div>'
-	inner ++ row
+	row += "</div>"
+	inner += row
 
 document["pixelgrid"].html = inner
 
