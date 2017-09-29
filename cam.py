@@ -40,7 +40,7 @@ def findPotentialChildren(pixels, childTemp):
 	return children
 
 def confirmPotentialChildren(potentialChildren):
-	return len(potentialChildren) > 0
+	return potentialChildren
 
 def checkChild():
 	pixels = getPixels()
