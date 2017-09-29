@@ -12,14 +12,12 @@
 	}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript"
+    src="https://cdn.rawgit.com/brython-dev/brython/stable/www/src/brython.js">
+</script>
 <script type="text/javascript">
-	$.ajax({
-		type: "POST",
-		url: "cam.py",
-		data: { param: text}
-	}).done(function( o ) {
-		col = o;
-	});
+	var col = [];
+
 	var tocol = function (num) {
 		var norm = (num - 22) / 18;
 	    var val = (norm * 255);
