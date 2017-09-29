@@ -7,7 +7,15 @@ sensor = Adafruit_AMG88xx()
 col = [23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 37, 36, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 38, 38, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23]
 
 def getPixels():
-	return sensor.readPixels()
+	pixels = [0.0 for x in range(64)]
+
+	for i in range(5):
+		reading = sensor.readPixels()
+		for j in range(len(reading)):
+			if pixels[j] == 0.0:
+				pixels[j] = reading[j]
+
+	return pixels;
 
 def getTemp():
 	return sensor.readThermistor()
@@ -52,4 +60,6 @@ def checkChild():
 
 	return len(children) > 0
 
+print(getTemp())
+print(getPixels())
 print(checkChild())
