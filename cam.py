@@ -62,8 +62,8 @@ def checkChild():
 
 def tocol(num):
 	norm = (num - 15.0) / 28.0
-	val = math.ceil(norm * 255.0)
-	antival = 255.0 - val
+	val = int(math.ceil(norm * 255))
+	antival = 255 - val
 
 	val = str(hex(val))[-2:]
 	antival = str(hex(antival))[-2:]
