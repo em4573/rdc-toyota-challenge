@@ -1,5 +1,6 @@
 from Adafruit_AMG88xx import Adafruit_AMG88xx
 from time import sleep
+import math
 
 # http://www.brython.info/
 
@@ -61,8 +62,7 @@ def checkChild():
 
 def tocol(num):
 	norm = (num - 15.0) / 28.0
-	val = norm * 255.0
-	val = math.ceil(val)
+	val = math.ceil(norm * 255.0)
 	antival = 255.0 - val
 
 	val = str(hex(val))[-2:]
