@@ -36,7 +36,7 @@ def findPotentialChildren(pixels, childTemp):
 		for row in range(8):
 			i = 8 * row + col
 
-			if abs(pixels[i] - childTemp) <= 1:
+			if abs(pixels[i] - childTemp) <= 3:
 				hotSpots.append(i);
 
 	for x in range(len(hotSpots)):
@@ -117,5 +117,15 @@ def getWebOutput():
 		}, 500);
 	</script>
 	'''
+
+	if checkChild():
+		inner += '''
+		<h2 style="color:red">CHILD DETECTED</h2>
+		'''
+	else:
+		inner += '''
+		<h2 style="color:gold">CHILD NOT DETECTED</h2>
+		<h2 style="color:gold">CHECK OTHER SENSORS</h2>
+		'''
 
 	return inner
