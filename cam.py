@@ -4,7 +4,6 @@ from time import sleep
 # http://www.brython.info/
 
 sensor = Adafruit_AMG88xx()
-col = [23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 37, 36, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 38, 38, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23]
 
 def getPixels():
 	pixels = [0.0 for x in range(64)]
@@ -59,3 +58,35 @@ def checkChild():
 	children = confirmPotentialChildren(potentialChildren)
 
 	return len(children) > 0
+
+def tocol(num):
+	norm = (num - 15.0) / 28.0
+	val = norm * 255.0
+	val = math.ceil(val)
+	antival = 255.0 - val
+
+	val = str(hex(val))[-2:]
+	antival = str(hex(antival))[-2:]
+
+	if val[0] == "x":
+		val = "0" + val[1]
+
+	if antival[0] == "x":
+		antival = "0" + antival[1]
+
+	return "#" + val + "00" + antival
+
+def getWebOutput():
+	col = getPixels()
+
+	inner = ""
+	for i in range(8):
+		row = "<div>"
+
+		for j in range(8):
+			row = row + "<div class=\"square\" style=\"background:" + tocol(col[8 * j + i]) + "\"></div>"
+
+		row += "</div>"
+		inner += row
+
+	return inner
