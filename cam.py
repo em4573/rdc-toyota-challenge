@@ -59,7 +59,3 @@ def checkChild():
 	children = confirmPotentialChildren(potentialChildren)
 
 	return len(children) > 0
-
-print(getTemp())
-print(getPixels())
-print(checkChild())
