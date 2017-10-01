@@ -89,4 +89,18 @@ def getWebOutput():
 		row += "</div>"
 		inner += row
 
+	inner += '''
+	<style type="text/css">
+		.square 
+		{
+		    display: table-cell;
+		    vertical-align: middle;
+		    text-align: center;
+		    
+		    height: 2.5rem;
+		    width: 2.5rem;
+		    background-color: white;
+		}
+	</style>'''
+
 	return inner
