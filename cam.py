@@ -103,4 +103,17 @@ def getWebOutput():
 		}
 	</style>'''
 
+	inner += '''
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$.ajax({
+	        url: "http://evelynemaquelin.wlan.rose-hulman.edu:8080/rdc/",
+	        type: 'GET',
+	        success: function(res) {
+	            document.body.innerHTML = res;
+	        }
+	    });
+	</script>
+	'''
+
 	return inner
